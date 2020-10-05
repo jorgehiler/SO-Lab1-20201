@@ -33,7 +33,7 @@ int main(int argc, char *argv[]){
         else if(aux != 0){
           if(character != oldChar){
             fwrite(&count, 1, sizeof(count), stdout);
-            printf("%c", oldChar);
+            fwrite(&oldChar, 1, 1, stdout);
             count =  1;
           }
         }
@@ -44,6 +44,7 @@ int main(int argc, char *argv[]){
       fclose(fp);
     }
   fwrite(&count, 1, sizeof(count), stdout);
-  printf("%c", oldChar);
+  fwrite(&oldChar, 1, 1, stdout);
+  
   return(0);  
 }
